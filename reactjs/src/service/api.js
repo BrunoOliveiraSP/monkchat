@@ -8,4 +8,15 @@ export default class Api {
         let r = await api.get(`/chat/${idSala}`);
         return r.data;
     }
+
+    async inserirMensagem(usuario, sala, mensagem) {
+        let chat = {
+            usuario: { nome: usuario },
+            sala: { nome: sala },
+            chat: { mensagem: mensagem }
+        }
+        
+        let r = await api.post(`/chat`, chat);
+        return r.data;
+    }
 }

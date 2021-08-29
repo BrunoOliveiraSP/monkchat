@@ -7,6 +7,23 @@ app.use(cors());
 app.use(express.json());
 
 
+app.post('/login', async (req, resp) => {
+    const login = req.body.login;
+    const senha = req.body.senha;
+
+    let u = await db.tb_usuario.findOne({
+        where: {
+            ds_login: login,
+            ds_senha: senha
+        }
+    });
+
+    if (u == null)
+        return resp.send({ erro: 'Credenciais inválidas!' });
+    
+    resp.sendStatus(200);
+})
+
 app.post('/sala', async (req, resp) => {
     try {
         let salaParam = req.body;

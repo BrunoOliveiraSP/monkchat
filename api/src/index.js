@@ -17,13 +17,15 @@ app.post('/login', async (req, resp) => {
         where: {
             ds_login: login,
             ds_senha: cryptoSenha
-        }
+        },
+        raw: true
     });
 
     if (u == null)
         return resp.send({ erro: 'Credenciais inválidas!' });
     
-    resp.sendStatus(200);
+    delete u.ds_senha;
+    resp.send(u);
 })
 
 app.post('/sala', async (req, resp) => {

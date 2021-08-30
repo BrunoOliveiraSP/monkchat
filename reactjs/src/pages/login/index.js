@@ -29,9 +29,10 @@ export default function Login() {
             toast.error(`${resp.erro}`);
             loading.current.complete();
         } else {
-            Cookies.set('usuario-logado', true);
+            Cookies.set('usuario-logado', JSON.stringify(resp));
             navig.push('/chat');
         }
+
     }
 
     return (

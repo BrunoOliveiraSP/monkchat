@@ -11,8 +11,7 @@ export default function initModels(sequelize) {
 
   tb_chat.belongsTo(tb_sala, { as: "tb_sala", foreignKey: "id_sala"});
   tb_sala.hasMany(tb_chat, { as: "tb_chats", foreignKey: "id_sala"});
-  
-  tb_chat.belongsTo(tb_usuario, { as: "tb_usuario", foreignKey: "id_usuario" });
+  tb_chat.belongsTo(tb_usuario, { as: "tb_usuario", foreignKey: "id_usuario"});
   tb_usuario.hasMany(tb_chat, { as: "tb_chats", foreignKey: "id_usuario"});
 
   return {

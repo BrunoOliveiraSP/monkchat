@@ -7,6 +7,8 @@ import { Container } from './styled'
 import { ChatButton, ChatInput } from '../../components/outros/inputs'
 import { useState, useRef } from 'react'
 
+import Cookies from 'js-cookie';
+
 import Api from '../../service/api';
 import { useHistory } from 'react-router-dom';
 const api = new Api();
@@ -27,6 +29,7 @@ export default function Login() {
             toast.error(`${resp.erro}`);
             loading.current.complete();
         } else {
+            Cookies.set('usuario-logado', true);
             navig.push('/chat');
         }
     }

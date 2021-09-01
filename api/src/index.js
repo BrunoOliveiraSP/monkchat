@@ -8,6 +8,11 @@ app.use(cors());
 app.use(express.json());
 
 
+
+
+
+
+
 app.post('/login', async (req, resp) => {
     const login = req.body.login;
     const senha = req.body.senha;
@@ -26,7 +31,12 @@ app.post('/login', async (req, resp) => {
     
     delete u.ds_senha;
     resp.send(u);
-})
+});
+
+
+
+
+
 
 app.post('/sala', async (req, resp) => {
     try {

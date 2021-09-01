@@ -17,8 +17,10 @@ const api = new Api();
 
 function lerUsuarioLogado(navigation) {
     let logado = Cookies.get('usuario-logado');
-    if (logado == null)
+    if (logado == null) {
         navigation.push('/');
+        return null;
+    }
     
     let usuarioLogado = JSON.parse(logado);
     return usuarioLogado;
@@ -27,7 +29,7 @@ function lerUsuarioLogado(navigation) {
 
 export default function Conteudo() {
     const navigation = useHistory();
-    let usuarioLogado = lerUsuarioLogado(navigation);
+    let usuarioLogado = lerUsuarioLogado(navigation) || {};
     
     const [chat, setChat] = useState([]);
     const [sala, setSala] = useState('');

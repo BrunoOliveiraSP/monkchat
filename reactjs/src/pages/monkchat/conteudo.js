@@ -59,7 +59,7 @@ export default function Conteudo() {
     }
 
     const enviarMensagem = async (event) => {
-        if (!(event && event.ctrlKey && event.charCode == 13))
+        if (event.type == "keypress" && (!event.ctrlKey || event.charCode != 13))
             return;
 
         const resp = await api.inserirMensagem(sala, usu, msg);

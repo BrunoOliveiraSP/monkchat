@@ -1,11 +1,11 @@
 import initdb from './models/init-models.js'
-
 import Sequelize from 'sequelize';
+
 const sequelize = new Sequelize(
-  '5MnijCqZkf', 
-  '5MnijCqZkf', 
-  'cXNvMIr556', {
-    host: 'remotemysql.com',
+    'mysql_17753_nsf2021',
+    'nsf2021',
+    'nsf@2021', {
+    host: 'my01.winhost.com',
     dialect: 'mysql',
     logging: false
 });

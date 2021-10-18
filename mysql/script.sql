@@ -2,7 +2,9 @@
 
 create table tb_usuario (
     id_usuario         int primary key not null auto_increment,
-    nm_usuario         varchar(100)
+    nm_usuario         varchar(100),
+    ds_senha           varchar(400),
+    img_usuario        varchar(500)
 );
 
 

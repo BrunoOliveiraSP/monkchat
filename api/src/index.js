@@ -82,7 +82,7 @@ app.post('/usuario', async (req, resp) => {
         })
         resp.send(r);
     } catch (e) {
-        resp.send({ erro: 'Ocorreu um erro!'})
+        resp.send({ erro: e.toString()})
     }
 })
 
